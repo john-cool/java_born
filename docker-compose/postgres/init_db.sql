@@ -33,7 +33,7 @@ CREATE TABLE transactions
     type          varchar(10)  NOT NULL
 );
 
-CREATE TABLE accounts
+CREATE TABLE accountDomains
 (
     id        uuid PRIMARY KEY,
     type_code varchar(10) NOT NULL REFERENCES account_types (code),
@@ -51,7 +51,8 @@ VALUES ('cafe', 'Кафе'),
        ('restaurant', 'Ресторан'),
        ('salary', 'Заработная плата'),
        ('health', 'Здоровье'),
-       ('automobile', 'Автомобиль');
+       ('automobile', 'Автомобиль'),
+       ('transfer', 'Перевод');
 
 INSERT INTO account_types (code, name)
 VALUES ('personal', 'Личный'),
@@ -75,7 +76,7 @@ VALUES ('db49769c-d492-4947-976f-5f107370d6ce', 'cafe', '2025-04-23', 1000, 'c15
        ('a21c84d9-5f7d-46a4-8310-bace6fa6120f', 'salary', '2025-01-01', 15000, '90fbeaf4-c9cb-4789-b332-a6516abafdfe',
         'deposit');
 
-INSERT INTO accounts (id, type_code, balance, user_id)
+INSERT INTO accountDomains (id, type_code, balance, user_id)
 VALUES ('c15e3646-96f3-4b6f-8058-347ed6c8c115', 'personal', 10000, '64cf7809-cb49-47cf-9c71-ea012a9f0268'),
        ('b1767aeb-3da6-4b07-a20c-ba220c937186', 'credit', 250000, '64cf7809-cb49-47cf-9c71-ea012a9f0268'),
        ('56fc42b3-4ff3-4c1f-b39f-c9a81ae7b474', 'personal', 10000, '0af20fb6-b1f9-4e23-9290-7d138d9c3f54'),
